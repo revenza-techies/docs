@@ -6,17 +6,19 @@
 <title>Revenza - About</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #f3f8ff;
+  --bg: #f2f7ff;
   --surface: #ffffff;
   --surface-soft: #f7fbff;
-  --text: #17314a;
-  --muted: #4a6379;
-  --line: #dce8f6;
-  --accent: #2658c8;
-  --accent-soft: #eaf1ff;
+  --text: #10263a;
+  --muted: #4c6278;
+  --line: #d8e8f8;
+  --brand: #1f63d8;
+  --brand-2: #00a9be;
+  --brand-soft: #e9f3ff;
+  --shadow: 0 16px 36px rgba(24, 73, 130, 0.12);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -27,151 +29,247 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   background:
-    radial-gradient(circle at 8% 0%, rgba(83, 74, 183, 0.12), transparent 28%),
-    radial-gradient(circle at 92% 8%, rgba(14, 179, 151, 0.16), transparent 26%),
+    radial-gradient(circle at 10% 0%, rgba(31, 99, 216, 0.16), transparent 35%),
+    radial-gradient(circle at 100% 14%, rgba(0, 169, 190, 0.18), transparent 30%),
     linear-gradient(180deg, #f7fbff 0%, var(--bg) 100%);
 }
-.app { display: flex; flex-direction: column; min-height: 100vh; }
+.app { min-height: 100vh; }
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px;
-  min-height: 64px;
+  min-height: 70px;
+  padding: 10px 20px;
   border-bottom: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(4px);
-  gap: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(7px);
+  gap: 12px;
 }
-.brand { font-size: 20px; letter-spacing: 0.2px; }
-.nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.brand {
+  font-family: "Sora", sans-serif;
+  letter-spacing: 0.3px;
+  font-size: 22px;
+}
+.nav { display: flex; flex-wrap: wrap; gap: 8px; }
 .nav a {
   text-decoration: none;
-  color: #4f6479;
-  padding: 8px 11px;
+  color: #435d74;
+  font-weight: 700;
+  font-size: 14px;
   border-radius: 999px;
-  font-weight: 600;
+  padding: 8px 12px;
 }
-.nav a:hover { background: #edf5ff; color: #274865; }
-.nav a.active { color: var(--accent); font-weight: 700; background: var(--accent-soft); }
-.main {
+.nav a:hover { background: #edf5ff; color: var(--text); }
+.nav a.active {
+  background: var(--brand-soft);
+  color: var(--brand);
+  box-shadow: inset 0 0 0 1px #d3e6ff;
+}
+.page {
   width: 100%;
-  max-width: 1160px;
-  margin: 18px auto 28px;
+  max-width: 1220px;
+  margin: 20px auto 32px;
   padding: 0 18px;
 }
 .hero {
-  background: linear-gradient(135deg, #ffffff 0%, #f3f9ff 100%);
+  position: relative;
+  overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 24px;
-  box-shadow: 0 12px 28px rgba(33, 74, 123, 0.08);
-  margin-bottom: 16px;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  background:
+    linear-gradient(135deg, rgba(31, 99, 216, 0.94) 0%, rgba(0, 169, 190, 0.9) 100%);
+  color: #ffffff;
+}
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+}
+.hero::before {
+  width: 260px;
+  height: 260px;
+  right: -100px;
+  top: -120px;
+  background: rgba(255, 255, 255, 0.16);
+}
+.hero::after {
+  width: 220px;
+  height: 220px;
+  left: -70px;
+  bottom: -130px;
+  background: rgba(255, 255, 255, 0.12);
+}
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  gap: 22px;
 }
 .hero h1 {
-  font-size: clamp(30px, 4vw, 46px);
-  line-height: 1.08;
-  letter-spacing: -0.4px;
-  margin-bottom: 12px;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.02;
+  letter-spacing: -0.8px;
+  margin-bottom: 14px;
 }
 .hero p {
-  font-size: 16px;
-  color: var(--muted);
-  line-height: 1.72;
-  margin-bottom: 10px;
+  font-size: 17px;
+  line-height: 1.76;
+  color: rgba(255, 255, 255, 0.94);
 }
 .quote {
-  margin-top: 10px;
-  border-left: 4px solid #89a8ee;
-  background: #f4f8ff;
-  color: #2c4d6d;
-  border-radius: 10px;
+  margin-top: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
   padding: 12px 14px;
-  font-weight: 600;
+  font-weight: 700;
 }
-.layout {
+.metric-wrap {
+  display: grid;
+  gap: 10px;
+}
+.metric {
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 12px;
+}
+.metric strong {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+.metric span {
+  font-size: 13px;
+  opacity: 0.95;
+}
+.shell {
+  margin-top: 16px;
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
   gap: 16px;
 }
-.side-nav {
+.side {
   position: sticky;
-  top: 82px;
+  top: 84px;
   align-self: start;
-  background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 14px;
+  border-radius: 18px;
+  background: var(--surface);
+  padding: 16px;
+  box-shadow: 0 8px 18px rgba(24, 73, 130, 0.06);
 }
-.side-nav h2 {
-  font-size: 13px;
-  color: #345473;
+.side h2 {
+  font-size: 12px;
   margin-bottom: 10px;
-  letter-spacing: 0.35px;
+  color: #3b5a77;
   text-transform: uppercase;
+  letter-spacing: 0.45px;
 }
-.side-nav a {
+.side a {
   display: block;
   text-decoration: none;
-  color: #486078;
-  font-weight: 600;
+  color: #46607b;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 9px 10px;
   border-radius: 10px;
-  padding: 8px 10px;
   margin-bottom: 6px;
 }
-.side-nav a:hover { background: #f2f7ff; color: var(--accent); }
-.panels {
+.side a:hover {
+  background: #eff7ff;
+  color: var(--brand);
+}
+.stack {
   display: grid;
-  gap: 12px;
+  gap: 14px;
 }
-.panel {
-  background: var(--surface);
+.card {
+  position: relative;
+  overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 8px 20px rgba(36, 79, 126, 0.06);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 10px 24px rgba(18, 57, 100, 0.07);
+  padding: 22px;
 }
-.panel h2 {
-  font-size: 26px;
-  line-height: 1.2;
-  letter-spacing: -0.2px;
-  margin-bottom: 10px;
+.card::after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  right: -70px;
+  top: -80px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(31, 99, 216, 0.13) 0%, rgba(31, 99, 216, 0.02) 70%);
 }
-.panel p {
-  font-size: 16px;
-  color: #2d4760;
-  line-height: 1.78;
-  margin-bottom: 11px;
-}
-.tag {
+.badge {
   display: inline-block;
   margin-bottom: 10px;
-  padding: 5px 10px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #235483;
-  background: #eef6ff;
-  border: 1px solid #d5e8fb;
+  padding: 6px 10px;
   border-radius: 999px;
-  letter-spacing: 0.25px;
+  border: 1px solid #d6e9ff;
+  background: #eef6ff;
+  color: #285786;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.28px;
   text-transform: uppercase;
 }
+.card h2 {
+  position: relative;
+  z-index: 1;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(24px, 3vw, 33px);
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+  margin-bottom: 11px;
+}
+.card p {
+  position: relative;
+  z-index: 1;
+  color: #2b445e;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 11px;
+}
 .list {
+  position: relative;
+  z-index: 1;
   margin: 8px 0 12px 20px;
-  color: #2d4760;
-  line-height: 1.75;
+  color: #2b445e;
+  line-height: 1.8;
 }
 .list li { margin-bottom: 6px; }
-@media (max-width: 900px) {
-  .layout { grid-template-columns: 1fr; }
-  .side-nav { position: static; }
+.story-highlight {
+  position: relative;
+  z-index: 1;
+  border-left: 4px solid #8db2ef;
+  background: #f3f8ff;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 8px 0 10px;
+  font-weight: 700;
+  color: #2b4e73;
+}
+@media (max-width: 940px) {
+  .hero-grid,
+  .shell { grid-template-columns: 1fr; }
+  .side { position: static; }
 }
 @media (max-width: 768px) {
   .header { align-items: flex-start; padding: 12px 14px; }
-  .main { margin: 14px auto 20px; padding: 0 12px; }
-  .hero { padding: 18px 14px; border-radius: 14px; }
-  .panel { padding: 16px 14px; border-radius: 14px; }
-  .panel h2 { font-size: 23px; }
+  .page { margin: 14px auto 20px; padding: 0 10px; }
+  .hero { border-radius: 16px; padding: 20px 14px; }
+  .card { border-radius: 14px; padding: 16px 14px; }
+  .hero p, .card p { font-size: 15px; }
 }
 </style>
 </head>
@@ -190,36 +288,45 @@ body {
   </nav>
 </header>
 
-<main class="main">
+<main class="page">
   <section class="hero">
-    <h1>About Revenza</h1>
-    <p>It started with a frustration. Our founders spent years watching talented teams lose hours every week to clunky tools and scattered processes. So in 2026, they set out to build something different.</p>
-    <p class="quote">"We didn't want to build another feature-bloated app. We wanted to build the one thing people would actually open every morning."</p>
+    <div class="hero-grid">
+      <div>
+        <h1>About Revenza</h1>
+        <p>It started with a frustration. Our founders spent years watching talented teams lose hours every week to clunky tools and scattered processes. So in 2026, they set out to build something different.</p>
+        <p class="quote">"We didn't want to build another feature-bloated app. We wanted to build the one thing people would actually open every morning."</p>
+      </div>
+      <div class="metric-wrap" aria-label="Highlights">
+        <div class="metric"><strong>Merchant-First</strong><span>Built for real ecommerce outcomes, not vanity features.</span></div>
+        <div class="metric"><strong>Precision Upsell</strong><span>Smart add-ons at the right time in the buyer journey.</span></div>
+        <div class="metric"><strong>Experience-Led</strong><span>Revenue growth without harming shopper trust.</span></div>
+      </div>
+    </div>
   </section>
 
-  <section class="layout">
-    <aside class="side-nav" aria-label="About sections">
-      <h2>On This Page</h2>
+  <section class="shell">
+    <aside class="side" aria-label="About sections">
+      <h2>Navigate</h2>
       <a href="#mission">1. Our Mission</a>
       <a href="#story">2. Revenza Story</a>
       <a href="#values">3. Our Values</a>
     </aside>
 
-    <div class="panels">
-      <section class="panel" id="mission">
-        <span class="tag">1. Our Mission</span>
+    <div class="stack">
+      <section class="card" id="mission">
+        <span class="badge">1. Our Mission</span>
         <h2>Our Mission at Revenza</h2>
         <p>At Revenza, we build intelligent solutions that help merchants increase conversions and maximize revenue while keeping the customer journey seamless and elegant.</p>
         <p>We design tools that make upselling natural, precise, and performance-driven so merchants can sell smarter, not harder.</p>
       </section>
 
-      <section class="panel" id="story">
-        <span class="tag">2. Revenza Story</span>
+      <section class="card" id="story">
+        <span class="badge">2. Revenza Story</span>
         <h2>Every Great Product Begins with a Real Problem</h2>
         <p>Every good product has a story. Ours started with two colleagues and one brilliant idea.</p>
         <p>We are <strong>Sarthak Jha (Developer)</strong> and <strong>Yatish Vijay (Support Expert)</strong>, two friends who met at work, bonded over shared challenges, and realized we both wanted to build something meaningful for merchants.</p>
         <p>Like many builders, we each tried separate paths first. We faced setbacks, learned the hard way, and kept moving. The turning point, however, did not come from a strategy deck or a business meeting.</p>
-        <p>It came from a casual evening conversation with Sarthak's wife, who said: <strong>"Why don't you guys build something together?"</strong></p>
+        <p class="story-highlight">It came from a casual evening conversation with Sarthak's wife, who said: "Why don't you guys build something together?"</p>
         <p>That one sentence changed everything. No overplanning. No waiting for a perfect time. Just a decision to start that same night.</p>
         <p>We combined technical execution and customer-first operations, then built our first product for Shopify merchants to:</p>
         <ul class="list">
@@ -230,8 +337,8 @@ body {
         <p>What began as an idea over a drink became a focused mission: help merchants grow with smarter systems and better product experiences.</p>
       </section>
 
-      <section class="panel" id="values">
-        <span class="tag">3. Our Values</span>
+      <section class="card" id="values">
+        <span class="badge">3. Our Values</span>
         <h2>How We Build</h2>
         <ul class="list">
           <li><strong>Merchant-first:</strong> We solve practical problems that directly impact growth.</li>
