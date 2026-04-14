@@ -18,6 +18,7 @@
         --text: #0f172a;
         --muted: #5b6b85;
         --line: #dbe5f1;
+        --accent-deep: #0a6797;
         --blue: #2563eb;
         --cyan: #06b6d4;
         --emerald: #10b981;
@@ -55,17 +56,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        min-height: 56px;
-        padding: 0 20px;
-        border-bottom: 1px solid #d6dde6;
-        background: #e7eaee;
+        padding: 14px 20px;
+        min-height: 64px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(6px);
+        gap: 16px;
       }
 
       .brand {
         font-size: 20px;
-        font-weight: 700;
-        line-height: 1;
-        color: #1a2d40;
+        letter-spacing: 0.2px;
       }
 
       .nav {
@@ -76,21 +77,21 @@
       }
 
       .nav a {
-        color: #50647d;
-        padding: 8px 12px;
+        text-decoration: none;
+        color: var(--muted);
+        padding: 8px 10px;
         border-radius: 999px;
-        font-size: 14px;
-        font-weight: 700;
+        font-weight: 600;
       }
 
       .nav a:hover {
-        background: #edf4fb;
-        color: #3e5b77;
+        background: #edf5fb;
+        color: var(--text);
       }
 
       .nav a.active {
-        background: #d9ebfc;
-        color: #2f6fa9;
+        color: var(--accent-deep);
+        background: #e8f5ff;
       }
 
       .container {
@@ -478,15 +479,6 @@
           padding: 12px 14px;
         }
 
-        .brand {
-          font-size: 20px;
-        }
-
-        .nav a {
-          font-size: 14px;
-          padding: 6px 10px;
-        }
-
         .hero-wrap {
           padding-top: 18px;
         }
@@ -513,7 +505,7 @@
   </head>
   <body>
     <header class="header">
-      <div class="brand">Revenza</div>
+      <div class="brand"><strong>Revenza</strong></div>
       <nav class="nav" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="apps.html">Apps</a>
