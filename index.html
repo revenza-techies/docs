@@ -41,17 +41,48 @@ p { line-height: 1.6; margin-bottom: 10px; }
 </style>
 <style id="theme-toggle-styles">
 .mode-toggle {
+  position: relative;
+  width: 54px;
+  height: 30px;
   border: 1px solid #c9d9ea;
-  background: #ffffff;
-  color: #2a4a67;
+  background: #e8f1fb;
   border-radius: 999px;
-  padding: 8px 12px;
-  font: inherit;
-  font-size: 13px;
-  font-weight: 700;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  padding: 0;
+  font-size: 0;
+  color: transparent;
+  transition: background 0.22s ease, border-color 0.22s ease;
 }
-.mode-toggle:hover { background: #eef5fc; }
+.mode-toggle::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 3px;
+  left: 3px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.18);
+  transition: transform 0.22s ease;
+}
+.mode-toggle::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25);
+}
+body.dark .mode-toggle {
+  background: #2a3f58;
+  border-color: #3a516c;
+}
+body.dark .mode-toggle::before {
+  transform: translateX(24px);
+  background: #dbe8f5;
+}
 
 body.dark {
   background: #0f1724 !important;
@@ -112,12 +143,6 @@ body.dark textarea {
   border-color: #2b3d56 !important;
   color: #e8f1fb !important;
 }
-body.dark .mode-toggle {
-  background: #162234;
-  border-color: #2f4159;
-  color: #c8daf0;
-}
-body.dark .mode-toggle:hover { background: #1d2d44; }
 </style>
 </head>
 <body>
@@ -133,7 +158,7 @@ body.dark .mode-toggle:hover { background: #1d2d44; }
     <a href="contact.html">Contact</a>
     <a href="privacy.html">Privacy Policy</a>
   
-    <button id="mode-toggle" class="mode-toggle" type="button" aria-label="Toggle dark mode">Dark</button>
+    <button id="mode-toggle" class="mode-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false"></button>
   </nav>
 </header>
 <main class="main">
@@ -149,10 +174,12 @@ body.dark .mode-toggle:hover { background: #1d2d44; }
   var button = document.getElementById('mode-toggle');
 
   function apply(theme) {
-    body.classList.toggle('dark', theme === 'dark');
+    var isDark = theme === 'dark';
+    body.classList.toggle('dark', isDark);
     if (button) {
-      button.textContent = theme === 'dark' ? 'Light' : 'Dark';
-      button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      button.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+      button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      button.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
     }
     try { localStorage.setItem(key, theme); } catch (e) {}
   }
@@ -170,4 +197,5 @@ body.dark .mode-toggle:hover { background: #1d2d44; }
 </script>
 </body>
 </html>
+
 
