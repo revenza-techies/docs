@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -401,11 +401,8 @@ body.dark textarea {
     <article class="card form-card">
       <h2>Send a Message</h2>
       <p style="color:#4e677d; margin-bottom:8px; line-height:1.6;">Your message will be sent to <strong>revenzatechies@gmail.com</strong>.</p>
-      <form action="https://formsubmit.co/revenzatechies@gmail.com" method="post">
-        <input type="hidden" name="_subject" value="New Contact Message - Reveza Techies">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://revenza-techies.github.io/docs/contact.html?submitted=true">
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="a0d704db-5d63-43a6-bb4d-91e948e1d8d2">
         <div>
           <label for="name">Name</label>
           <input type="text" id="name" name="name" placeholder="Enter your full name" required>
@@ -501,7 +498,3 @@ body.dark textarea {
 </script>
 </body>
 </html>
-
-
-
-
